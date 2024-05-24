@@ -9,14 +9,21 @@ function createPromise() {
   });
 }
 
-// Create an array of 5 promises
-const promises = Array.from({ length: 5 }, createPromise);
+// Populate the window.promises array with 5 promises
+window.promises = Array.from({ length: 5 }, createPromise);
 
-Promise.any(promises)
-  .then((result) => {
-    const outputDiv = document.getElementById('output');
-    outputDiv.textContent = result;
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+function handlePromises() {
+  Promise.any(window.promises)
+    .then((result) => {
+      const outputDiv = document.getElementById('output');
+      outputDiv.textContent = result;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
+// Call the handlePromises function after populating the promises array
+handlePromises();
+
+
