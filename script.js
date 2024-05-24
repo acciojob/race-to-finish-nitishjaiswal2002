@@ -1,8 +1,6 @@
 window.promises = [];
 
-// Do not change the code above this
-// add your promises to the array `promises`
-unction createPromise() {
+function createPromise() {
   const randomDelay = Math.floor(Math.random() * 5) + 1; // Random number between 1 and 5
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -22,8 +20,3 @@ Promise.any(promises)
   .catch((error) => {
     console.error(error);
   });
-
-
-
-
-
